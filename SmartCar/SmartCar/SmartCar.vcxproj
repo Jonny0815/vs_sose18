@@ -61,9 +61,21 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="DistanceSensor.cpp" />
+    <ClCompile Include="FuelSensor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sensor.cpp" />
+    <ClCompile Include="SpeedSensor.cpp" />
+    <ClCompile Include="TraficSensor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="DistanceSensor.h" />
+    <ClInclude Include="FuelSensor.h" />
+    <ClInclude Include="Sensor.h" />
+    <ClInclude Include="SpeedSensor.h" />
+    <ClInclude Include="TraficSensor.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
