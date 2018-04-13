@@ -13,6 +13,9 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
+
+	cout << "test" << endl;
+
 	if (argc != 1) {
 		cerr << "Usage: " << argv[0]
 			<< "number_of_cars" << endl;
