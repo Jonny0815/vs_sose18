@@ -7,6 +7,6 @@ public:
 	FuelSensor();
 	~FuelSensor();
 
-	void send(int);
+	void send();
 };
 

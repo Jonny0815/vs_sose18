@@ -15,7 +15,7 @@ using namespace std;
 class Car
 {
 public:
-	Car();
+	Car(char*, char*);
 	~Car();
 
 	void drive();
@@ -25,5 +25,7 @@ private:
 	vector<thread*> threads;
 
 	int id;
+	char *host;
+	char *port;
 };
 

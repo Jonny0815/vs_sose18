@@ -1,35 +1,34 @@
-#include <cstdio>
-#include <string>
+#include <ctime>
 #include <iostream>
-#include <vector>
-#include <thread>
-#include <boost\asio\ip\udp.hpp>
+#include <string>
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+
 
 #include "Car.h"
-#include "Sensor.h"
+
 
 
 
 using namespace std;
 
+using boost::asio::ip::udp;
+
 int main(int argc, char *argv[])
 {
-
-	if (argc != 1) {
-		cerr << "Usage: " << argv[0]
-			<< "number_of_cars" << endl;
-		return(1);
-	}
-
-	int numCars = atoi(argv[1]);
-
-	vector<Car*> cars;
-	vector<thread*> threads;
-
-	for (size_t i = 0; i < numCars; i++)
+	if (argc != 3)
 	{
-		cars.push_back(new Car);
+		std::cerr << "Usage: SmartCar <host> <port>\n";
+		return 1;
 	}
+
+	
+
+
+	Car c(argv[1],argv[2]);
+	
+
+	
 
 
 

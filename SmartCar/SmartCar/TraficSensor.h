@@ -7,6 +7,6 @@ public:
 	TraficSensor();
 	~TraficSensor();
 
-	void send(int);
+	void send();
 };
 
