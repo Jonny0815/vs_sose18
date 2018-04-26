@@ -7,6 +7,6 @@ public:
 	DistanceSensor();
 	~DistanceSensor();
 
-	void send();
+	void send(int);
 };
 

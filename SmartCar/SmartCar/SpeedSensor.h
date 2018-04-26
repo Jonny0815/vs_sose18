@@ -7,6 +7,6 @@ public:
 	SpeedSensor();
 	~SpeedSensor();
 
-	void send();
+	void send(int);
 };
 

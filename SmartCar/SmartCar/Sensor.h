@@ -5,7 +5,7 @@ public:
 	Sensor();
 	~Sensor();
 
-	virtual void send();
+	virtual void send(int);
 
 };
 
