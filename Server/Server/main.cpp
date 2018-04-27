@@ -1,3 +1,5 @@
+#include <cstdio>
+
 #include <cstdlib>
 #include <iostream>
 #include <boost/bind.hpp>
@@ -5,6 +7,7 @@
 #include <thread>
 #include <vector>
 
+#include "ServerInst.h"
 
 using boost::asio::ip::udp;
 
@@ -13,8 +16,8 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-	vector<*thread> Threads;
-	vector<*Server> Servers;
+	vector<thread*> Threads;
+	vector<ServerInst*> Servers;
 
 	try
 	{
@@ -27,20 +30,28 @@ int main(int argc, char* argv[])
 		for (size_t i = 0; i < atoi(argv[2]); i++)
 		{
 
-			Servers.push_back(new Server(argv[1]));
-			Threads.push_back(new thread(Server::run, Servers.at(i)));
+			Servers.push_back(new ServerInst(argv[1]));
+			Threads.push_back(new thread(ServerInst::run, Servers.at(i)));
 
 		}
 
 		for (size_t i = 0; i < Threads.size(); i++)
 		{
 
-			if (Threads.at(i).joinable())
+			if (Threads.at(i)->joinable())
 			{
-				Threads.at(i).join();
+				Threads.at(i)->join();
 			}
 
 		}
 
-    return 0;
+		return 0;
+	}
+
+	catch (std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << "\n";
+	}
+
+
 }

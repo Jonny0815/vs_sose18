@@ -27,9 +27,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{137332bc-593e-45c2-8d10-8b4ef559f6bd}</ProjectGuid>
+    <ProjectGuid>{d1cda5ac-6456-4bda-b3cd-e418af7092ad}</ProjectGuid>
     <Keyword>Linux</Keyword>
-    <RootNamespace>CentralServer</RootNamespace>
+    <RootNamespace>Server</RootNamespace>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <ApplicationType>Linux</ApplicationType>
     <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
@@ -62,19 +62,15 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="ServerInst.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Server.h" />
+    <ClInclude Include="ServerInst.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Link>
-      <AdditionalOptions>-lboost_system %(AdditionalOptions)</AdditionalOptions>
-    </Link>
-  </ItemDefinitionGroup>
+  <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.62.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.62.0.0\build\native\boost.targets')" />

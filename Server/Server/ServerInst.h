@@ -1,24 +1,25 @@
 #pragma once
 
+
 #include <cstdlib>
 #include <iostream>
-#inclulde <vector>
+#include <string>
+#include <vector>
 #include <boost/asio.hpp>
 
 using boost::asio::ip::udp;
 
-using namepace std;
+using namespace std;
 
-class Server
+class ServerInst
 {
 public:
-	Server(char*);
-	~Server();
-
+	ServerInst(char*);
+	~ServerInst();
 	void run();
 
-
 private:
+
 	int port;
 
 	int carid;

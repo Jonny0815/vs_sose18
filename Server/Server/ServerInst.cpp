@@ -1,19 +1,21 @@
-#include "Server.h"
+#include "ServerInst.h"
 
 
 
-
-Server::Server(char* port_h)
+ServerInst::ServerInst(char* port_h)
 {
+
 	port = atoi(port_h);
+
 }
 
 
-Server::~Server()
+ServerInst::~ServerInst()
 {
 }
 
-void Server::run()
+
+void ServerInst::run()
 {
 	boost::asio::io_service io_service;
 
@@ -28,6 +30,12 @@ void Server::run()
 		recieved_messurements++;
 
 		string data_s = data;
+
+		string carid_s = data_s.substr(0, 4);
+		string id_s = data_s.substr(5, 4);
+		string messure_s = data_s.substr(9, 4);
+
+		messurements.push_back(stoi(messure_s));
 
 
 	}
