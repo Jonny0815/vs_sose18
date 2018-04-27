@@ -33,15 +33,16 @@ void Sensor::send()
 
 	using namespace std; // For strlen.
 	char data[1024];
-	string data_s;
-	
 
-	
+	for (size_t i = 0; i < amount_sends; i++)
+	{
+		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100);
 
+		strncpy(data, data_s.c_str(), 1024);
 
-	//sending data here
-	size_t request_length = strlen(data);
-	s.send_to(boost::asio::buffer(data, request_length), *iterator);
+		size_t request_length = strlen(data);
+		s.send_to(boost::asio::buffer(data, request_length), *iterator);
+	}
 
 	
 }
