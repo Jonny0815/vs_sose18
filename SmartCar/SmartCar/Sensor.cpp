@@ -4,7 +4,7 @@
 
 Sensor::Sensor(char* host_h, char* port_h, int amount_sends_h, int carid_h)
 {
-	srand(time(NULL));
+	
 
 	carid = carid_h;
 	id = rand() % 1024;
@@ -42,8 +42,13 @@ void Sensor::send()
 
 		size_t request_length = strlen(data);
 		s.send_to(boost::asio::buffer(data, request_length), *iterator);
+
+		cout << id << " " << carid << "sending" << endl;
+		this_thread::sleep_for(chrono::milliseconds(100));
 	}
 
+
+	// todo zähl angekommene packete, evtl verloren ? + TIMESTAMPS !!!
 	
 }
 catch (std::exception& e)

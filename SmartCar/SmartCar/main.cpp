@@ -17,8 +17,10 @@ using boost::asio::ip::udp;
 
 int main(int argc, char *argv[])
 {
+	srand(time(NULL));
 
 	vector<Car*> cars;
+	vector<thread*> threads;
 
 	if (argc != 5)
 	{
@@ -30,11 +32,16 @@ int main(int argc, char *argv[])
 	for (size_t i = 0; i < atoi(argv[3]); i++)
 	{
 		cars.push_back(new Car(argv[1], argv[2], atoi(argv[4])));
+		cout << "pushed car" << endl;
 	}
 
 	for (size_t i = 0; i < cars.size(); i++)
 	{
-		cars.at(i)->drive();
+		threads.push_back(new thread(&Car::drive, cars.at(i)));
+		if (threads.at(i)->joinable())
+		{
+			threads.at(i)->join();
+		}
 	}
 
 	

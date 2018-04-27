@@ -15,9 +15,9 @@ ServerInst::~ServerInst()
 }
 
 
-void ServerInst::run()
+void ServerInst::run(boost::asio::io_service& io_service)
 {
-	boost::asio::io_service io_service;
+	
 
 	udp::socket sock(io_service, udp::endpoint(udp::v4(), port));
 	for (;;)
@@ -31,6 +31,10 @@ void ServerInst::run()
 
 		string data_s = data;
 
+		stringstream output;
+		output << "Ip: " << sender_endpoint.address() << " Data: " << data_s << "\n";
+		cout << output.str();
+
 		string carid_s = data_s.substr(0, 4);
 		string id_s = data_s.substr(5, 4);
 		string messure_s = data_s.substr(9, 4);
@@ -40,8 +44,8 @@ void ServerInst::run()
 
 	}
 
-
-
-
+	stringstream output;
+	output << "Recieved " << recieved_messurements << " messurements" << "\n";
+	cout << output.str();
 
 }

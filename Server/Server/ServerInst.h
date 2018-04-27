@@ -16,7 +16,7 @@ class ServerInst
 public:
 	ServerInst(char*);
 	~ServerInst();
-	void run();
+	void run(boost::asio::io_service&);
 
 private:
 

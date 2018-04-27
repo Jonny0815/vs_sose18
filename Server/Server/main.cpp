@@ -21,17 +21,22 @@ int main(int argc, char* argv[])
 
 	try
 	{
-		if (argc != 2)
+		if (argc != 3)
 		{
 			std::cerr << "Usage: Server <port> <amount of sensors>\n";
 			return 1;
 		}
 
-		for (size_t i = 0; i < atoi(argv[2]); i++)
+		boost::asio::io_service io_service;
+
+		ServerInst s1(argv[1]);
+		s1.run(io_service);
+
+		/*for (size_t i = 0; i < atoi(argv[2]); i++)
 		{
 
 			Servers.push_back(new ServerInst(argv[1]));
-			Threads.push_back(new thread(ServerInst::run, Servers.at(i)));
+			Threads.push_back(new thread(&ServerInst::run, Servers.at(i), &io_service));
 
 		}
 
@@ -43,7 +48,7 @@ int main(int argc, char* argv[])
 				Threads.at(i)->join();
 			}
 
-		}
+		}*/
 
 		return 0;
 	}
