@@ -1,6 +1,7 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+#include <vector>
 #include <boost/array.hpp>
 #include <boost/asio.hpp>
 
@@ -16,21 +17,26 @@ using boost::asio::ip::udp;
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+
+	vector<Car*> cars;
+
+	if (argc != 5)
 	{
-		std::cerr << "Usage: SmartCar <host> <port>\n";
+		std::cerr << "Usage: SmartCar <host> <port> <number of cars> <amount of outgoing messurements per sensor>\n";
 		return 1;
 	}
 
 	
+	for (size_t i = 0; i < atoi(argv[3]); i++)
+	{
+		cars.push_back(new Car(argv[1], argv[2], atoi(argv[4])));
+	}
 
+	for (size_t i = 0; i < cars.size(); i++)
+	{
+		cars.at(i)->drive();
+	}
 
-	Car c(argv[1],argv[2]);
 	
-
-	
-
-
-
     return 0;
 }

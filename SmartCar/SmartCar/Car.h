@@ -15,7 +15,7 @@ using namespace std;
 class Car
 {
 public:
-	Car(char*, char*);
+	Car(char*, char*,int);
 	~Car();
 
 	void drive();
@@ -27,5 +27,6 @@ private:
 	int id;
 	char *host;
 	char *port;
+	int amount_sends;
 };
 
