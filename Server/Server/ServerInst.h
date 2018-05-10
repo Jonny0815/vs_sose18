@@ -7,7 +7,9 @@
 #include <vector>
 #include <boost/asio.hpp>
 
+
 using boost::asio::ip::udp;
+using boost::asio::ip::tcp;
 
 using namespace std;
 
@@ -16,15 +18,13 @@ class ServerInst
 public:
 	ServerInst(char*);
 	~ServerInst();
-	void run(boost::asio::io_service&);
+	void run_udp(boost::asio::io_service&);
+	void run_http(boost::asio::io_service&);
 
 private:
 
 	int port;
-
-	int carid;
-	int id;
-	vector<int> messurements;
+	vector<string> messurements;
 	int recieved_messurements;
 
 };

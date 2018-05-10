@@ -4,7 +4,8 @@
 #include <iostream>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
-#include <thread>
+#include <boost/thread/thread.hpp>
+#include <boost/bind.hpp>
 #include <vector>
 
 #include "ServerInst.h"
@@ -16,8 +17,6 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-	vector<thread*> Threads;
-	vector<ServerInst*> Servers;
 
 	try
 	{
@@ -29,26 +28,14 @@ int main(int argc, char* argv[])
 
 		boost::asio::io_service io_service;
 
+
+
+
+
 		ServerInst s1(argv[1]);
-		s1.run(io_service);
+		s1.run_udp(io_service);
 
-		/*for (size_t i = 0; i < atoi(argv[2]); i++)
-		{
-
-			Servers.push_back(new ServerInst(argv[1]));
-			Threads.push_back(new thread(&ServerInst::run, Servers.at(i), &io_service));
-
-		}
-
-		for (size_t i = 0; i < Threads.size(); i++)
-		{
-
-			if (Threads.at(i)->joinable())
-			{
-				Threads.at(i)->join();
-			}
-
-		}*/
+		//boost::thread* thr = new boost::thread(&ServerInst::run_udp, &s1,&io_service); // not working ? neither with c++11 threads
 
 		return 0;
 	}

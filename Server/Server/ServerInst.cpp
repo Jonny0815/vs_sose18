@@ -15,7 +15,7 @@ ServerInst::~ServerInst()
 }
 
 
-void ServerInst::run(boost::asio::io_service& io_service)
+void ServerInst::run_udp(boost::asio::io_service& io_service)
 {
 	
 
@@ -31,21 +31,21 @@ void ServerInst::run(boost::asio::io_service& io_service)
 
 		string data_s = data;
 
-		stringstream output;
-		output << "Ip: " << sender_endpoint.address() << " Data: " << data_s << "\n";
-		cout << output.str();
-
 		string carid_s = data_s.substr(0, 4);
 		string id_s = data_s.substr(5, 4);
-		string messure_s = data_s.substr(9, 4);
+		string messure_s = data_s.substr(10, 4);
+		string timestamp_s = data_s.substr(15, 20);
 
-		messurements.push_back(stoi(messure_s));
+		messurements.push_back(messure_s);
+
+
+		stringstream output;
+		output << "Ip: " << sender_endpoint.address() << " CarID: " << carid_s << "\t SensorID: " << id_s<< "\t Value: " << messure_s << "\t Time: " << timestamp_s <<"\n";
+		cout << output.str();	
 
 
 	}
 
-	stringstream output;
-	output << "Recieved " << recieved_messurements << " messurements" << "\n";
-	cout << output.str();
+	
 
 }

@@ -36,7 +36,10 @@ void Sensor::send()
 
 	for (size_t i = 0; i < amount_sends; i++)
 	{
-		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100);
+
+		boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+
+		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100) + " " + boost::posix_time::to_simple_string(now);
 
 		strncpy(data, data_s.c_str(), 1024);
 
@@ -47,8 +50,6 @@ void Sensor::send()
 		this_thread::sleep_for(chrono::milliseconds(100));
 	}
 
-
-	// todo zähl angekommene packete, evtl verloren ? + TIMESTAMPS !!!
 	
 }
 catch (std::exception& e)
