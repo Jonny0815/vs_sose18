@@ -21,9 +21,6 @@ public:
 	void run_udp(boost::asio::io_service&);
 	void run_http(boost::asio::io_service&);
 
-	void save();
-	void read();
-
 private:
 
 	int port;
