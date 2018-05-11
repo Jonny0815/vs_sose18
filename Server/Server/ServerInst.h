@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include <boost/asio.hpp>
 
 
@@ -20,6 +21,9 @@ public:
 	~ServerInst();
 	void run_udp(boost::asio::io_service&);
 	void run_http(boost::asio::io_service&);
+
+	void write();
+	void read();
 
 private:
 
