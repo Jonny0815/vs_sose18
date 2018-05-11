@@ -52,11 +52,9 @@ void ServerInst::run_udp(boost::asio::io_service& io_service)
 
 void ServerInst::write() {
 
-	ofstream data;
+	//ofstream datei;
 
 	fstream datei("save.txt", ios::out);
-	if (!datei)
-		return 20;
 
 	datei << messurements.size() << " "; 
 
@@ -68,9 +66,9 @@ void ServerInst::write() {
 
 void ServerInst::read() {
 
+	ifstream datei;
+
 	datei.open("save.txt", ios::in);
-	if (!datei)
-		return 20;
 
 	messurements.clear();     
 
@@ -79,12 +77,12 @@ void ServerInst::read() {
 	vector<int>::size_type size; 
 	datei >> size; 
 	messurements.reserve(size);
-	
 */
 	istream_iterator<int> begin(datei); // Anfangsiterator auf die Datei
 	istream_iterator<int> end; // Enditerator
 	copy(begin, end, back_inserter(messurements)); 
 
 	copy(messurements.begin(), messurements.end(), ostream_iterator<int>(cout, " "));
-	return 0;
+
+	cout << "Datas read" << endl;
 }
