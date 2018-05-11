@@ -4,7 +4,7 @@ Car::Car(char* host_h, char* port_h, int amount_sends_h){
 
 
 
-	id = rand()%1024;
+	id = rand()%899 + 100;
 	host = host_h;
 	port = port_h;
 	amount_sends = amount_sends_h;

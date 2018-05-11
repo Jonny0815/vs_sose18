@@ -7,7 +7,7 @@ Sensor::Sensor(char* host_h, char* port_h, int amount_sends_h, int carid_h)
 	
 
 	carid = carid_h;
-	id = rand() % 1024;
+	id = rand() % 899 + 100;
 	host = host_h;
 	port = port_h;
 	amount_sends = amount_sends_h;
@@ -20,6 +20,16 @@ Sensor::~Sensor()
 
 void Sensor::send()
 {
+
+
+	boost::gregorian::date dayte(boost::gregorian::day_clock::local_day());
+	boost::posix_time::ptime midnight(dayte);
+	boost::posix_time::ptime
+		now(boost::posix_time::microsec_clock::local_time());
+	boost::posix_time::time_duration td = now - midnight;
+
+	std::stringstream sstream;
+
 
 	try{
 
@@ -39,7 +49,7 @@ void Sensor::send()
 
 		boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
 
-		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100) + " " + boost::posix_time::to_simple_string(now);
+		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100 + 100);
 
 		strncpy(data, data_s.c_str(), 1024);
 

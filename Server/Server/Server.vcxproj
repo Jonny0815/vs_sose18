@@ -64,10 +64,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ServerInst.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="tcpserver.cpp" />
+    <ClCompile Include="udpserver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerInst.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="tcpserver.h" />
+    <ClInclude Include="udpserver.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
