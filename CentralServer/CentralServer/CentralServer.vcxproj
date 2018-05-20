@@ -62,13 +62,17 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Server.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Server.h" />
+    <ClCompile Include="session.cpp" />
+    <ClCompile Include="tcp_server.cpp" />
+    <ClCompile Include="udp_server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="session.h" />
+    <ClInclude Include="tcp_server.h" />
+    <ClInclude Include="udp_server.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
