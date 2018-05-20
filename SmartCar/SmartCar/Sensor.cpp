@@ -6,11 +6,7 @@ Sensor::Sensor()
 {
 }
 
+
 Sensor::~Sensor()
 {
 }
-
-void Sensor::send()
-{
-}
-

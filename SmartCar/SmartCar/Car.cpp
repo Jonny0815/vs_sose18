@@ -1,21 +1,20 @@
 #include "Car.h"
 
-Car::Car(char* host_h, char* port_h){
-
-	srand(time(NULL));
+Car::Car(char* host_h, char* port_h, int amount_sends_h){
 
 
-	sensors.push_back(new Sensor);
-
-	/*sensors.push_back(new SpeedSensor);
-	sensors.push_back(new FuelSensor);
-	sensors.push_back(new DistanceSensor);
-	sensors.push_back(new TraficSensor);*/
 
 	id = rand()%1024;
 	host = host_h;
 	port = port_h;
+	amount_sends = amount_sends_h;
 
+
+
+
+	sensors.push_back(new Sensor(host,port,amount_sends,id));
+	sensors.push_back(new Sensor(host, port, amount_sends, id));
+	sensors.push_back(new Sensor(host, port, amount_sends, id));
 }
 
 Car::~Car(){
