@@ -53,32 +53,32 @@ void ServerInst::run_udp(boost::asio::io_service& io_service)
 
 void ServerInst::write() {
 
-	//ofstream datei;
+	////ofstream datei;
 
-	fstream datei("save.txt", ios::out);
+	//fstream datei("save.txt", ios::out);
 
-	datei << messurements.size() << " ";
+	//datei << messurements.size() << " ";
 
-	copy(messurements.begin(), messurements.end(), ostream_iterator<int>(datei, " "));
+	//copy(messurements.begin(), messurements.end(), ostream_iterator<int>(datei, " "));
 
-	datei.close();
+	//datei.close();
 
 }
 
 void ServerInst::read() {
 
-	ifstream datei;
+	//ifstream datei;
 
-	datei.open("save.txt", ios::in);
+	//datei.open("save.txt", ios::in);
 
-	messurements.clear();
+	//messurements.clear();
 
-	istream_iterator<int> begin(datei); // Anfangsiterator auf die Datei
-	istream_iterator<int> end; // Enditerator
-	copy(begin, end, back_inserter(messurements));
+	//istream_iterator<int> begin(datei); // Anfangsiterator auf die Datei
+	//istream_iterator<int> end; // Enditerator
+	//copy(begin, end, back_inserter(messurements));
 
-	copy(messurements.begin(), messurements.end(), ostream_iterator<int>(cout, " "));
+	//copy(messurements.begin(), messurements.end(), ostream_iterator<int>(cout, " "));
 
-	cout << "Datas read" << endl;
+	//cout << "Datas read" << endl;
 }
 

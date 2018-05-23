@@ -20,7 +20,7 @@ public:
 	ServerInst(char*);
 	~ServerInst();
 	void run_udp(boost::asio::io_service&);
-	void run_http(boost::asio::io_service&);
+
 
 	void write();
 	void read();
