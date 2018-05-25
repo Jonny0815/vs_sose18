@@ -46,10 +46,18 @@ void Sensor::send()
 
 	for (size_t i = 0; i < amount_sends; i++)
 	{
+		
+		//timestamp, testing TODO !
 
-		boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+		boost::posix_time::ptime timeLocal = boost::posix_time::microsec_clock::universal_time();
 
-		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100 + 100);
+		boost::posix_time::time_duration durObj = timeLocal.time_of_day();
+
+		stringstream ss;
+
+		ss << durObj;
+
+		string data_s = to_string(carid) + " " + to_string(id) + " " + to_string(rand() % 100 + 100) + " " + ss.str();
 
 		strncpy(data, data_s.c_str(), 1024);
 
