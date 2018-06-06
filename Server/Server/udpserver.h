@@ -5,6 +5,8 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
+#include "messurement.h"
+
 using boost::asio::ip::udp;
 using namespace std;
 
@@ -17,6 +19,7 @@ public:
 	void handle_receive_from(const boost::system::error_code&, size_t);
 	void handle_send_to(const boost::system::error_code&, size_t);
 
+	vector<messurement*>* get_messurements() { return messurements; }
 
 private:
 
@@ -25,7 +28,7 @@ private:
 	enum { max_length = 1024 };
 	char data_[max_length];
 
-	vector<string> messurements;
+	vector<messurement*>* messurements = new vector<messurement*>();
 
 };
 

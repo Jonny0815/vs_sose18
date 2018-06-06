@@ -13,8 +13,15 @@ udpserver::udpserver(boost::asio::io_service& io_service, short port): socket_(i
 
 
 
-udpserver::~udpserver()
-{
+udpserver::~udpserver() {
+
+	for (size_t i = 0; i < messurements->size(); i++)
+	{
+		delete messurements->at(i);
+	}
+
+	delete messurements;
+
 }
 
 
@@ -34,15 +41,17 @@ void udpserver::handle_receive_from(const boost::system::error_code& error,
 		string data_s = data_;
 
 		string carid_s = data_s.substr(0, 4);
-		string id_s = data_s.substr(5, 4);
-		string messure_s = data_s.substr(10, 4);
-		//string timestamp_s = data_s.substr(15, 20);
+		string id_s = data_s.substr(4, 4);
+		string messure_s = data_s.substr(8, 4);
+		string timestamp_s = data_s.substr(12, 15);
 
-		messurements.push_back(messure_s);
+
+
+		messurements->push_back(new messurement(stoi(carid_s),stoi(id_s),stoi(messure_s),timestamp_s));
 
 
 		stringstream output;
-		output << "Ip: " << sender_endpoint_.address() << " CarID: " << carid_s << "\t SensorID: " << id_s << "\t Value: " << messure_s << "\t Time: " << "\n";
+		output << "Ip: " << sender_endpoint_.address() << " CarID: " << carid_s << "\t SensorID: " << id_s << "\t Value: " << messure_s << "\t Time: " << timestamp_s << "\n";
 		cout << output.str();
 
 

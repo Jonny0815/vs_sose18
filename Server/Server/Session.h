@@ -3,13 +3,18 @@
 #include <iostream>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
+#include <vector>
+
+#include "messurement.h"
 
 using boost::asio::ip::tcp;
+
+using namespace std;
 
 class Session
 {
 public:
-	Session(boost::asio::io_service&);
+	Session(boost::asio::io_service&, vector<messurement*>*);
 	~Session();
 
 	tcp::socket& socket();
@@ -24,5 +29,7 @@ private:
 	tcp::socket socket_;
 	enum { max_length = 1024 };
 	char data_[max_length];
+
+	vector<messurement*>* messurements;
 };
 

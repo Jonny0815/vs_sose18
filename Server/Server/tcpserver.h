@@ -6,12 +6,14 @@
 #include <boost/asio.hpp>
 
 #include "Session.h"
+#include "messurement.h"
 
+using namespace std;
 
 class tcpserver
 {
 public:
-	tcpserver(boost::asio::io_service&,short);
+	tcpserver(boost::asio::io_service&,short,std::vector<messurement*>*);
 	~tcpserver();
 
 
@@ -22,6 +24,8 @@ private:
 
 	boost::asio::io_service& io_service_;
 	tcp::acceptor acceptor_;
+
+	vector<messurement*>* messurements;
 
 };
 

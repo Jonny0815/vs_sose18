@@ -11,7 +11,7 @@ Car::Car(char* host_h, char* port_h, int amount_sends_h){
 
 
 
-	sensors.push_back(new Sensor(host,port,amount_sends,id));
+	sensors.push_back(new Sensor(host, port, amount_sends, id));
 	sensors.push_back(new Sensor(host, port, amount_sends, id));
 	sensors.push_back(new Sensor(host, port, amount_sends, id));
 }

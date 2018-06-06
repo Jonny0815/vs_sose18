@@ -32,8 +32,9 @@ int main(int argc, char* argv[])
 		boost::asio::io_service io_service;
 
 
-		tcpserver tcps(io_service, atoi(argv[1]));
+		
 		udpserver udps(io_service, atoi(argv[1]));
+		tcpserver tcps(io_service, atoi(argv[1]), udps.get_messurements());
 
 		io_service.run();
 

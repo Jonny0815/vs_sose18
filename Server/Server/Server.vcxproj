@@ -62,12 +62,14 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="messurement.cpp" />
     <ClCompile Include="ServerInst.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="tcpserver.cpp" />
     <ClCompile Include="udpserver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="messurement.h" />
     <ClInclude Include="ServerInst.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="tcpserver.h" />

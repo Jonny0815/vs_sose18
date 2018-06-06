@@ -64,7 +64,7 @@ void Sensor::send()
 		size_t request_length = strlen(data);
 		s.send_to(boost::asio::buffer(data, request_length), *iterator);
 
-		cout << id << " " << carid << "sending" << endl;
+		cout << "SensorID: " << id << " CarID: " << carid << " Timestamp: "<< ss.str() << endl;
 		this_thread::sleep_for(chrono::milliseconds(100));
 	}
 
