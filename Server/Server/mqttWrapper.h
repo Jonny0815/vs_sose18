@@ -3,7 +3,6 @@
 
 #include "mosquittopp.h"
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -23,7 +22,6 @@ private:
 
 	string host;
 	int port;
-	vector<string> messurements;
 
 };
 

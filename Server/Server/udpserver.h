@@ -6,6 +6,7 @@
 #include <boost/asio.hpp>
 
 #include "messurement.h"
+#include "mqttWrapper.h"
 
 using boost::asio::ip::udp;
 using namespace std;
@@ -13,7 +14,7 @@ using namespace std;
 class udpserver
 {
 public:
-	udpserver(boost::asio::io_service&, short);
+	udpserver(boost::asio::io_service&, short, mqttWrapper*);
 	~udpserver();
 
 	void handle_receive_from(const boost::system::error_code&, size_t);
@@ -29,6 +30,7 @@ private:
 	char data_[max_length];
 
 	vector<messurement*>* messurements = new vector<messurement*>();
+	mqttWrapper* mqtt;
 
 };
 

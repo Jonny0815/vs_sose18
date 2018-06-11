@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="messurement.cpp" />
+    <ClCompile Include="ServerInst.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="tcpserver.cpp" />
+    <ClCompile Include="udpserver.cpp" />
+    <ClCompile Include="actions.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="callbacks.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="connect.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_connack.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_ping.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_pubackcomp.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_publish.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_pubrec.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_pubrel.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_suback.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_unsuback.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="logging_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="loop.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="memory_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="messages_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="mosquitto.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="mosquittopp.cpp">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="net_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="options.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="packet_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="read_handle.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_connect.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_disconnect.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_publish.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_subscribe.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="send_unsubscribe.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="utf8_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="util_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="will_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="time_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="tls_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="srv_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+    <ClCompile Include="socks_mosq.c">
+      <Filter>mqtt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="messurement.h" />
+    <ClInclude Include="ServerInst.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="tcpserver.h" />
+    <ClInclude Include="udpserver.h" />
+    <ClInclude Include="config.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="dummypthread.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="logging_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="memory_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="messages_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="mosquitto.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="mosquitto_internal.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="mosquittopp.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="mqtt3_protocol.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="net_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="packet_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="read_handle.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="send_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="will_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="util_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="tls_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="time_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+    <ClInclude Include="socks_mosq.h">
+      <Filter>mqtt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="mqtt">
+      <UniqueIdentifier>{3b85e50c-8663-4f27-b9e3-c22ed27227b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

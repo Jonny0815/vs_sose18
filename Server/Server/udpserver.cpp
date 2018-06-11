@@ -2,8 +2,10 @@
 
 
 
-udpserver::udpserver(boost::asio::io_service& io_service, short port): socket_(io_service, udp::endpoint(udp::v4(), port))
+udpserver::udpserver(boost::asio::io_service& io_service, short port, mqttWrapper* mqtt_h): socket_(io_service, udp::endpoint(udp::v4(), port))
 {
+	mqtt = mqtt_h;
+
 	socket_.async_receive_from(
 		boost::asio::buffer(data_, max_length), sender_endpoint_,
 		boost::bind(&udpserver::handle_receive_from, this,
@@ -39,6 +41,12 @@ void udpserver::handle_receive_from(const boost::system::error_code& error,
 
 
 		string data_s = data_;
+
+		
+		// std::cerr << "About to publsh to test " << data_s << std::endl;
+		mqtt->myPublish("test", data_s);
+
+		
 
 		string carid_s = data_s.substr(0, 4);
 		string id_s = data_s.substr(4, 4);

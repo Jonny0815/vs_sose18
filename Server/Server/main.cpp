@@ -10,6 +10,7 @@
 
 #include "tcpserver.h"
 #include "udpserver.h"
+#include "mqttWrapper.h"
 
 using boost::asio::ip::udp;
 using boost::asio::ip::tcp;
@@ -23,17 +24,18 @@ int main(int argc, char* argv[])
 
 	try
 	{
-		if (argc != 2)
+		if (argc != 3)
 		{
-			std::cerr << "Usage: Server <port> \n";
+			std::cerr << "Usage: Server <port udp/tcp> <mqtt host>\n";
 			return 1;
 		}
 
 		boost::asio::io_service io_service;
 
-
+		mqttWrapper* mqtt;
+		mqtt = new mqttWrapper("test1337", argv[2], 1883);
 		
-		udpserver udps(io_service, atoi(argv[1]));
+		udpserver udps(io_service, atoi(argv[1]), mqtt);
 		tcpserver tcps(io_service, atoi(argv[1]), udps.get_messurements());
 
 		io_service.run();
