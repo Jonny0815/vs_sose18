@@ -1,6 +1,7 @@
 XML-RPC Documentation
 
 avialable methodes:
+
     get_data
     
     required parameters:
